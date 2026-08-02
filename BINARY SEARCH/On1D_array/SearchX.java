@@ -15,7 +15,7 @@ public class SearchX {
     }
 
     public static int recursive(int[] nums, int low, int high, int target) {
-        if (low < high) return -1;
+        if (low > high) return -1;
         int mid = (low + high) / 2;
         if(nums[mid] == target) return mid;
         else if(target > nums[mid]) return recursive(nums, mid +1, high, target);
