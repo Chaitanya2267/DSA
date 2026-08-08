@@ -19,15 +19,13 @@ class FindPeakElement {
         if (nums[n - 1] > nums[n - 2]) return n - 1;
 
         int low = 1, high = n - 2;
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) {
-                return mid; // Peak found
-            } else if (nums[mid] > nums[mid - 1]) {
-                low = mid + 1; // Move right
-            } else {
-                high = mid - 1; // Move left
-            }
+        while(low <= high) {
+            int mid = (low + high)/2;
+            if(nums[mid] > nums[mid - 1] &&
+               nums[mid] > nums[mid + 1]) return mid;
+            else if(nums[mid] > nums[mid - 1]) low = mid + 1;
+            else if(nums[mid] > nums[mid + 1]) high = mid - 1;
+            else low = mid + 1; // mid is a valley element. both left and rigth element are large. so move to left side.
         }
         return -1; // Should never reach here
     }
