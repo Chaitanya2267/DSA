@@ -8,7 +8,7 @@
  */
 class Solution {
     public void deleteNode(ListNode node) {
-        node.val = node.next.val;   // Step 1: Copy next node’s value
+        node.val = node.next.val;
         node.next = node.next.next;
     }
 }
