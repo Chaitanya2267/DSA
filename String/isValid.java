@@ -25,3 +25,36 @@ class Solution {
         return stack.isEmpty();
     }
 }
+// -----------------------------------------------------------------------------------------
+
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        for(int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);  // CHANGE 1
+
+            if(ch == '(') {stack.push(ch);}
+            if(ch == ')') {
+                if(stack.isEmpty()) {return false;}
+                if(stack.peek() == '(') {stack.pop();}
+                else {return false;}
+            }
+
+            if(ch == '[') {stack.push(ch);}
+            if(ch == ']') {
+                if(stack.isEmpty()) {return false;}
+                if(stack.peek() == '[') {stack.pop();}
+                else {return false;}
+            }
+
+            if(ch == '{') {stack.push(ch);}
+            if(ch == '}') {
+                if(stack.isEmpty()) {return false;}
+                if(stack.peek() == '{') {stack.pop();}
+                else {return false;}
+            }
+        }
+        return stack.isEmpty();  
+    }
+}
