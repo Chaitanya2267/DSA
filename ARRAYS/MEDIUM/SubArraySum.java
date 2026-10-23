@@ -1,3 +1,5 @@
+// 560. Subarray Sum Equals K
+
 import java.util.*;
 
 public class SubArraySum {
@@ -53,16 +55,5 @@ public class SubArraySum {
             prefixSumCount.put(prefixSum, prefixSumCount.getOrDefault(prefixSum, 0) + 1);
         }
         return count;
-    }
-
-    public static void main(String[] args) {
-        SubArraySum sol = new SubArraySum();
-
-        int[] arr = { 3, 1, 2, 4 };
-        int k = 6;
-
-        System.out.println("Brute  : " + sol.brute(arr, k));
-        System.out.println("Better : " + sol.better(arr, k));
-        System.out.println("Optimal: " + sol.opt(arr, k));
     }
 }
