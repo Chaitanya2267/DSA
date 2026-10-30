@@ -1,3 +1,5 @@
+// Generate Binary Strings Without Consecutive 1s
+
 class Solution {
     public List<String> generateBinaryStrings(int n) {
         List<String> ans = new ArrayList<>();
