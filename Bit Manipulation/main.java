@@ -1,4 +1,5 @@
 public class Solution{
+    // 1.
     public String convert2binary(int n) {
         if(n == 0) { return "0"; }
         String res = "";
@@ -15,6 +16,7 @@ public class Solution{
         return rev;
     }
 
+    // 2.
     public int convert2Decimal(String x) {
         int len = x.length(); int p2 = 1; int num = 0;
         for(int i = len - 1; i >= 0; i--) {
@@ -22,5 +24,42 @@ public class Solution{
             p2 *= 2;
         }
         return num;
+    }
+
+    // 3.
+    public void swap2Numbers(int a, int b) {
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+    }
+
+    // 4.
+    public boolean isIthBitSet(int num, int i) {
+        return (num & (1 << i )) != 0; 
+    }
+
+    // 5.
+    public int setIthBit(int num, int i) {
+        return num | (1 << i );
+    }
+
+    // 6.
+    public int clearIthBit(int num, int i) {
+        return num & ~(1 << i );
+    }
+
+    // 7.
+    public int toggleIthBit(int num, int i) {
+        return num ^ (1 << i);
+    }
+
+    // 8.
+    public int removeLastSetBit(int num) {
+        return num & (num - 1);
+    }
+
+    // 9.
+    public boolean isOdd(int num) {
+        return (num & 1) != 0;
     }
 }
