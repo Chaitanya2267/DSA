@@ -62,4 +62,16 @@ public class Solution{
     public boolean isOdd(int num) {
         return (num & 1) != 0;
     }
+
+    // 9.
+    public int countSetBits(int num) {
+    int cnt = 0;
+
+    while(num > 0) {
+        num = num & (num - 1);
+        cnt++;
+    }
+
+    return cnt;
+}
 }
