@@ -26,3 +26,33 @@ class Solution {
         return sIndex == -1 ? "" : s.substring(sIndex, sIndex + minlen);
     }
 }
+
+
+class Solution {
+    public String minWindow(String s, String t) {
+        int n = s.length(); int m = t.length();
+        if(n == 0 || m == 0 || n < m) { return ""; }
+        int[] need = new int[128];
+        for(int i = 0; i < m; i++) { need[t.charAt(i)]++; }
+        int minlen = Integer.MAX_VALUE;
+        String ans = "";
+        for(int start = 0; start < n; start++) {
+            int[] window = new int[128];
+            int matched = 0;
+            for(int end = start; end < n; end++) {
+                char curr = s.charAt(end);
+                window[curr]++;
+                if(need[curr] > 0 && window[curr] <= need[curr]) { matched++; }
+                if(matched == m) {
+                    int currlen = end - start + 1;
+                    if(currlen < minlen) {
+                        minlen = currlen;
+                        ans = s.substring(start, end + 1);
+                    }
+                    break;
+                }
+            }
+        }
+        return ans;  
+    }
+}
